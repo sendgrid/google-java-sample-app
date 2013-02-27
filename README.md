@@ -22,11 +22,14 @@ Clone SendGrid application on your local machine
 
 Configure <strong>GoogleSendgridJava/src/googleSendgridJava/GoogleSendgridJavaServlet.java</strong> file with your information:
 
-Update the username and password with your SendGrid credentials.
+Update the *&lt;sendgrid_username&gt;* and *&lt;sendgrid_password&gt;* with your SendGrid credentials.
 ```Java
     Sendgrid mail = new Sendgrid("<sendgrid_username>","<sendgrid_password>");
 ```
-
+Update the *&lt;from_address&gt;* with your email address
+```Java
+    .setFrom("<from_address>")
+```
 Update application identifier in <strong>GoogleSendgridJava/war/WEB-INF/appengine-web.xml</strong> file
 ```XML
     <application>application_identifier</application>

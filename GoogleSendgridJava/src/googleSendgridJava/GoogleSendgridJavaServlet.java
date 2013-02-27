@@ -27,7 +27,8 @@ public class GoogleSendgridJavaServlet extends HttpServlet {
                 Sendgrid mail = new Sendgrid("<sendgrid_username>","<sendgrid_password>");
                 // set to address, from address, subject, the html/text content and send the email 
                 mail.setTo(req.getParameter("emailto"))
-                    .setFrom(userService.getCurrentUser().getEmail())
+                    // update the <from_address> with your email address
+                    .setFrom("<from_address>")
                     .setSubject(req.getParameter("subject"))
                     .setText(req.getParameter("content"))
                     .setHtml("")

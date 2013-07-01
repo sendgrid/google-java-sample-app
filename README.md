@@ -15,7 +15,7 @@ Create an application at https://appengine.google.com/start/createapp
 
 Clone SendGrid application on your local machine
 <pre>
-    git clone git@github.com:laur-craciun/google-sendgrid-java.git
+    git clone https://github.com/sendgrid/google-java-sample-app
 </pre>
 
 ###Configuration###

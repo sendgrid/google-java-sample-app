@@ -24,22 +24,22 @@ public class GoogleSendgridJavaServlet extends HttpServlet {
             try {
                 // initialize Sendgrid class
                 // please replace "<sendgrid_username>" and "<sendgrid_password>" with your SendGrid credentials
-                Sendgrid mail = new Sendgrid("<sendgrid_username>","<sendgrid_password>");
+                Sendgrid mail = new Sendgrid("daniela.mihalache","mihalache123");
                 // set to address, from address, subject, the html/text content and send the email 
                 mail.setTo(req.getParameter("emailto"))
                     // update the <from_address> with your email address
-                    .setFrom("<from_address>")
+                    .setFrom("meme@sendgrid.com")
                     .setSubject(req.getParameter("subject"))
                     .setText(req.getParameter("content"))
                     .setHtml("")
                     .send();
 
                 // check the response and display proper message
-                if (mail.message == "success") {
+                if (mail.getServerResponse() == "success") {
                     req.setAttribute("message", "Your request was successfully processed.");
                     req.setAttribute("myclass", "success");
                 } else {
-                    req.setAttribute("message", "Request failed  - " + mail.message);
+                    req.setAttribute("message", "Request failed  - " + mail.getServerResponse());
                     req.setAttribute("myclass", "error");
                 }
                 req.getRequestDispatcher("success.jsp").forward(req, resp);

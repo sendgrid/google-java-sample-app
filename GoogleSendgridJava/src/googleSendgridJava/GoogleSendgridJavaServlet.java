@@ -35,11 +35,11 @@ public class GoogleSendgridJavaServlet extends HttpServlet {
                     .send();
 
                 // check the response and display proper message
-                if (mail.message == "success") {
+                if (mail.getServerResponse() == "success") {
                     req.setAttribute("message", "Your request was successfully processed.");
                     req.setAttribute("myclass", "success");
                 } else {
-                    req.setAttribute("message", "Request failed  - " + mail.message);
+                    req.setAttribute("message", "Request failed  - " + mail.getServerResponse());
                     req.setAttribute("myclass", "error");
                 }
                 req.getRequestDispatcher("success.jsp").forward(req, resp);
